@@ -1,0 +1,512 @@
+/* --- DESIGN SYSTEM E VARIÁVEIS --- */
+:root {
+    --bg-principal: #f4f7f6;
+    --bg-cartao: #ffffff;
+    --texto-principal: #1c2833;
+    --texto-secundario: #566573;
+    --cor-destaque: #1e88e5; /* Azul seguro e confiável */
+    --cor-sucesso: #2e7d32; /* Verde para acertos */
+    --cor-perigo: #c62828; /* Vermelho para alertas/erros */
+    --tamanho-fonte-base: 18px; /* Fonte inicial maior para facilidade de leitura */
+    --raio-borda: 16px;
+    --sombra: 0 4px 12px rgba(0,0,0,0.08);
+    --transicao: all 0.2s ease;
+}
+
+/* --- MODO ALTO CONTRASTE --- */
+.alto-contraste {
+    --bg-principal: #121212;
+    --bg-cartao: #1e1e1e;
+    --texto-principal: #ffff00; /* Amarelo de alto contraste */
+    --texto-secundario: #ffffff;
+    --cor-destaque: #00ffff; /* Ciano de alta visibilidade */
+    --cor-sucesso: #00ff00;
+    --cor-perigo: #ff0000;
+    --sombra: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* --- ESTILOS GERAIS --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-size: var(--tamanho-fonte-base);
+    line-height: 1.6;
+    transition: var(--transicao);
+    padding-bottom: 80px; /* Espaço para o menu inferior no mobile */
+}
+
+/* --- BARRA DE ACESSIBILIDADE --- */
+.barra-acessibilidade {
+    background-color: var(--bg-cartao);
+    border-bottom: 2px solid var(--cor-destaque);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--sombra);
+}
+
+.area-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icone-logo {
+    font-size: 1.8rem;
+}
+
+.titulo-logo {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--cor-destaque);
+}
+
+.botoes-controle {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Botões grandes para facilitar o toque */
+.botao-acessivel {
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    border: 2px solid var(--texto-principal);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transicao);
+    min-height: 48px; /* Diretriz de acessibilidade para toque */
+}
+
+.botao-acessivel:hover, .botao-acessivel:focus {
+    background-color: var(--cor-destaque);
+    color: white;
+    border-color: var(--cor-destaque);
+    outline: none;
+}
+
+.botao-destaque {
+    background-color: var(--cor-destaque);
+    color: white;
+    border-color: var(--cor-destaque);
+}
+
+.botao-destaque:hover {
+    opacity: 0.9;
+}
+
+/* --- CONTAINER PRINCIPAL --- */
+.conteiner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- CABEÇALHO BOAS-VINDAS --- */
+.cabecalho-boas-vindas {
+    text-align: center;
+    margin: 20px 0 35px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--cor-destaque), #1565c0);
+    color: white;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra);
+}
+
+.alto-contraste .cabecalho-boas-vindas {
+    background: var(--bg-cartao);
+    border: 2px solid var(--cor-destaque);
+    color: var(--texto-principal);
+}
+
+.cabecalho-boas-vindas h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.cabecalho-boas-vindas p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* --- ABAS DE NAVEGAÇÃO --- */
+.abas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+    .abas {
+        grid-template-columns: 1fr;
+    }
+}
+
+.botao-aba {
+    background-color: var(--bg-cartao);
+    color: var(--texto-principal);
+    border: 3px solid transparent;
+    padding: 16px;
+    border-radius: var(--raio-borda);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transicao);
+}
+
+.botao-aba:focus, .botao-aba.ativo {
+    border-color: var(--cor-destaque);
+    background-color: var(--bg-cartao);
+    transform: translateY(-2px);
+}
+
+.botao-aba .icone-aba {
+    font-size: 2.5rem;
+}
+
+/* --- CONTEÚDO DAS SEÇÕES --- */
+.conteudo-secao {
+    display: none;
+    animation: surgimento 0.4s ease;
+}
+
+.conteudo-secao.ativo {
+    display: block;
+}
+
+@keyframes surgimento {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- CARDS DE DICAS (CATEGORIAS) --- */
+.grade-dicas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.cartao-dica {
+    background-color: var(--bg-cartao);
+    border-radius: var(--raio-borda);
+    padding: 24px;
+    box-shadow: var(--sombra);
+    border-left: 8px solid var(--cor-destaque);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cartao-dica.alerta {
+    border-left-color: var(--cor-perigo);
+}
+
+.cartao-dica.sucesso {
+    border-left-color: var(--cor-sucesso);
+}
+
+.cabecalho-dica {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--texto-principal);
+}
+
+.icone-dica {
+    font-size: 1.8rem;
+}
+
+.corpo-dica ul {
+    padding-left: 24px;
+    margin-top: 10px;
+}
+
+.corpo-dica li {
+    margin-bottom: 8px;
+}
+
+/* --- SIMULADOR DE RISCOS (QUIZ INTERATIVO) --- */
+.recipiente-simulador {
+    background-color: var(--bg-cartao);
+    border-radius: var(--raio-borda);
+    padding: 25px;
+    box-shadow: var(--sombra);
+    margin-top: 20px;
+}
+
+.mensagem-simulada {
+    background-color: var(--bg-principal);
+    border: 2px dashed #bdc3c7;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.alto-contraste .mensagem-simulada {
+    border-color: var(--cor-destaque);
+}
+
+.info-remetente {
+    font-size: 0.95rem;
+    color: var(--texto-secundario);
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.corpo-mensagem {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.links-destaque {
+    color: var(--cor-perigo);
+    text-decoration: underline;
+    display: inline-block;
+    margin-top: 10px;
+    word-break: break-all;
+}
+
+.acoes-simulador {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+@media (max-width: 500px) {
+    .acoes-simulador {
+        flex-direction: column;
+    }
+}
+
+.botao-opcao {
+    flex: 1;
+    padding: 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 54px;
+    transition: var(--transicao);
+}
+
+.botao-seguro {
+    background-color: var(--cor-sucesso);
+    color: white;
+}
+
+.botao-golpe {
+    background-color: var(--cor-perigo);
+    color: white;
+}
+
+.botao-opcao:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* --- ÁREA DE FEEDBACK --- */
+.caixa-feedback {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    animation: surgimento 0.3s ease;
+}
+
+.feedback-correto {
+    background-color: rgba(46, 125, 50, 0.15);
+    border: 2px solid var(--cor-sucesso);
+    color: var(--texto-principal);
+}
+
+.feedback-errado {
+    background-color: rgba(198, 40, 40, 0.15);
+    border: 2px solid var(--cor-perigo);
+    color: var(--texto-principal);
+}
+
+.alto-contraste .feedback-correto {
+    background-color: #000;
+    border: 3px solid #00ff00;
+}
+
+.alto-contraste .feedback-errado {
+    background-color: #000;
+    border: 3px solid #ff0000;
+}
+
+/* --- GLOSSÁRIO DE TERMOS --- */
+.termo-glossario {
+    background-color: var(--bg-cartao);
+    border-radius: var(--raio-borda);
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: var(--sombra);
+}
+
+.titulo-termo {
+    font-weight: 800;
+    color: var(--cor-destaque);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.corpo-termo {
+    color: var(--texto-principal);
+}
+
+/* --- BOTÃO DE AJUDA URGENTE (FLOAT) --- */
+.botao-ajuda-fixo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--cor-perigo);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(198, 40, 40, 0.4);
+    cursor: pointer;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transicao);
+}
+
+.botao-ajuda-fixo:hover, .botao-ajuda-fixo:focus {
+    transform: scale(1.05);
+    background-color: #b71c1c;
+}
+
+/* --- MODAL DE AJUDA --- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.conteudo-modal {
+    background-color: var(--bg-cartao);
+    border-radius: var(--raio-borda);
+    max-width: 500px;
+    width: 100%;
+    padding: 30px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    position: relative;
+    border: 3px solid var(--cor-destaque);
+}
+
+.titulo-modal {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--cor-perigo);
+}
+
+.lista-botoes-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.botao-ligar {
+    background-color: var(--cor-sucesso);
+    color: white;
+    padding: 15px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.botao-fechar-modal {
+    background-color: var(--texto-secundario);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* --- PAGINAÇÃO DO SIMULADOR --- */
+.progresso-simulador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.botao-avancar {
+    margin-top: 15px;
+    background-color: var(--cor-destaque);
+    color: white;
+    display: none;
+}
+
+/* --- UTILITÁRIOS --- */
+.apenas-leitor-tela {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

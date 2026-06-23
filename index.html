@@ -1,583 +1,75 @@
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia Digital Seguro - Acessibilidade para Idosos</title>
     <!-- Google Fonts para melhor legibilidade -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap](https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap)" rel="stylesheet">
     
-    <style>
-        /* --- DESIGN SYSTEM E VARIÁVEIS --- */
-        :root {
-            --bg-primary: #f4f7f6;
-            --bg-card: #ffffff;
-            --text-primary: #1c2833;
-            --text-secondary: #566573;
-            --color-accent: #1e88e5; /* Azul seguro e confiável */
-            --color-success: #2e7d32; /* Verde para acertos */
-            --color-danger: #c62828; /* Vermelho para alertas/erros */
-            --font-base-size: 18px; /* Fonte inicial maior para facilidade de leitura */
-            --border-radius: 16px;
-            --shadow: 0 4px 12px rgba(0,0,0,0.08);
-            --transition: all 0.2s ease;
-        }
-
-        /* --- MODO ALTO CONTRASTE --- */
-        .alto-contraste {
-            --bg-primary: #121212;
-            --bg-card: #1e1e1e;
-            --text-primary: #ffff00; /* Amarelo de alto contraste */
-            --text-secondary: #ffffff;
-            --color-accent: #00ffff; /* Ciano de alta visibilidade */
-            --color-success: #00ff00;
-            --color-danger: #ff0000;
-            --shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        }
-
-        /* --- ESTILOS GERAIS --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-size: var(--font-base-size);
-            line-height: 1.6;
-            transition: var(--transition);
-            padding-bottom: 80px; /* Espaço para o menu inferior no mobile */
-        }
-
-        /* --- BARRA DE ACESSIBILIDADE --- */
-        .accessibility-bar {
-            background-color: var(--bg-card);
-            border-bottom: 2px solid var(--color-accent);
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow);
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            font-size: 1.8rem;
-        }
-
-        .logo-title {
-            font-weight: 800;
-            font-size: 1.3rem;
-            color: var(--color-accent);
-        }
-
-        .control-buttons {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        /* Botões grandes para facilitar o toque */
-        .btn-accessible {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            border: 2px solid var(--text-primary);
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition);
-            min-height: 48px; /* Diretriz de acessibilidade para toque */
-        }
-
-        .btn-accessible:hover, .btn-accessible:focus {
-            background-color: var(--color-accent);
-            color: white;
-            border-color: var(--color-accent);
-            outline: none;
-        }
-
-        .btn-accent {
-            background-color: var(--color-accent);
-            color: white;
-            border-color: var(--color-accent);
-        }
-
-        .btn-accent:hover {
-            opacity: 0.9;
-        }
-
-        /* --- CONTAINER PRINCIPAL --- */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* --- CABEÇALHO BOAS-VINDAS --- */
-        .welcome-header {
-            text-align: center;
-            margin: 20px 0 35px 0;
-            padding: 20px;
-            background: linear-gradient(135deg, var(--color-accent), #1565c0);
-            color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .alto-contraste .welcome-header {
-            background: var(--bg-card);
-            border: 2px solid var(--color-accent);
-            color: var(--text-primary);
-        }
-
-        .welcome-header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-
-        .welcome-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* --- ABAS DE NAVEGAÇÃO --- */
-        .tabs {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 30px;
-        }
-
-        @media (max-width: 600px) {
-            .tabs {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .tab-btn {
-            background-color: var(--bg-card);
-            color: var(--text-primary);
-            border: 3px solid transparent;
-            padding: 16px;
-            border-radius: var(--border-radius);
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            transition: var(--transition);
-        }
-
-        .tab-btn:focus, .tab-btn.active {
-            border-color: var(--color-accent);
-            background-color: var(--bg-card);
-            transform: translateY(-2px);
-        }
-
-        .tab-btn .tab-icon {
-            font-size: 2.5rem;
-        }
-
-        /* --- CONTEÚDO DAS SEÇÕES --- */
-        .section-content {
-            display: none;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .section-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- CARDS DE DICAS (CATEGORIAS) --- */
-        .dicas-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .dica-card {
-            background-color: var(--bg-card);
-            border-radius: var(--border-radius);
-            padding: 24px;
-            box-shadow: var(--shadow);
-            border-left: 8px solid var(--color-accent);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .dica-card.alerta {
-            border-left-color: var(--color-danger);
-        }
-
-        .dica-card.sucesso {
-            border-left-color: var(--color-success);
-        }
-
-        .dica-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 800;
-            font-size: 1.3rem;
-            color: var(--text-primary);
-        }
-
-        .dica-icon {
-            font-size: 1.8rem;
-        }
-
-        .dica-body ul {
-            padding-left: 24px;
-            margin-top: 10px;
-        }
-
-        .dica-body li {
-            margin-bottom: 8px;
-        }
-
-        /* --- SIMULADOR DE RISCOS (QUIZ INTERATIVO) --- */
-        .simulador-container {
-            background-color: var(--bg-card);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            box-shadow: var(--shadow);
-            margin-top: 20px;
-        }
-
-        .mensagem-simulada {
-            background-color: var(--bg-primary);
-            border: 2px dashed #bdc3c7;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            position: relative;
-        }
-
-        .alto-contraste .mensagem-simulada {
-            border-color: var(--color-accent);
-        }
-
-        .remetente-info {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 8px;
-            margin-bottom: 12px;
-        }
-
-        .corpo-mensagem {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .links-destaque {
-            color: var(--color-danger);
-            text-decoration: underline;
-            display: inline-block;
-            margin-top: 10px;
-            word-break: break-all;
-        }
-
-        .acoes-simulador {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        @media (max-width: 500px) {
-            .acoes-simulador {
-                flex-direction: column;
-            }
-        }
-
-        .btn-opcao {
-            flex: 1;
-            padding: 18px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 12px;
-            cursor: pointer;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            min-height: 54px;
-            transition: var(--transition);
-        }
-
-        .btn-seguro {
-            background-color: var(--color-success);
-            color: white;
-        }
-
-        .btn-golpe {
-            background-color: var(--color-danger);
-            color: white;
-        }
-
-        .btn-opcao:hover {
-            opacity: 0.9;
-            transform: scale(1.02);
-        }
-
-        /* --- ÁREA DE FEEDBACK --- */
-        .feedback-box {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            line-height: 1.5;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .feedback-correto {
-            background-color: rgba(46, 125, 50, 0.15);
-            border: 2px solid var(--color-success);
-            color: var(--text-primary);
-        }
-
-        .feedback-errado {
-            background-color: rgba(198, 40, 40, 0.15);
-            border: 2px solid var(--color-danger);
-            color: var(--text-primary);
-        }
-
-        .alto-contraste .feedback-correto {
-            background-color: #000;
-            border: 3px solid #00ff00;
-        }
-
-        .alto-contraste .feedback-errado {
-            background-color: #000;
-            border: 3px solid #ff0000;
-        }
-
-        /* --- GLOSSÁRIO DE TERMOS --- */
-        .glossario-termo {
-            background-color: var(--bg-card);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        .termo-titulo {
-            font-weight: 800;
-            color: var(--color-accent);
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-        }
-
-        /* --- BOTÃO DE AJUDA URGENTE (FLOAT) --- */
-        .help-button-fixed {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--color-danger);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 15px 25px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(198, 40, 40, 0.4);
-            cursor: pointer;
-            z-index: 99;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: var(--transition);
-        }
-
-        .help-button-fixed:hover, .help-button-fixed:focus {
-            transform: scale(1.05);
-            background-color: #b71c1c;
-        }
-
-        /* --- MODAL DE AJUDA --- */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.6);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background-color: var(--bg-card);
-            border-radius: var(--border-radius);
-            max-width: 500px;
-            width: 100%;
-            padding: 30px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-            text-align: center;
-            position: relative;
-            border: 3px solid var(--color-accent);
-        }
-
-        .modal-title {
-            font-size: 1.6rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: var(--color-danger);
-        }
-
-        .modal-button-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .btn-call {
-            background-color: var(--color-success);
-            color: white;
-            padding: 15px;
-            font-size: 1.2rem;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-close-modal {
-            background-color: var(--text-secondary);
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        /* --- PAGINAÇÃO DO SIMULADOR --- */
-        .simulador-progresso {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .btn-avancar {
-            margin-top: 15px;
-            background-color: var(--color-accent);
-            color: white;
-            display: none;
-        }
-
-        /* --- UTILITÁRIOS --- */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-    </style>
+    <!-- Chamada para o arquivo CSS externo -->
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
     <!-- BARRA DE ACESSIBILIDADE FIXA -->
-    <header class="accessibility-bar" role="banner">
-        <div class="logo-area">
-            <span class="logo-icon" aria-hidden="true">🛡️</span>
-            <span class="logo-title">Internet Segura</span>
+    <header class="barra-acessibilidade" role="banner">
+        <div class="area-logo">
+            <span class="icone-logo" aria-hidden="true">🛡️</span>
+            <span class="titulo-logo">Internet Segura</span>
         </div>
         
-        <div class="control-buttons">
-            <button class="btn-accessible" onclick="alterarFonte(-2)" aria-label="Diminuir tamanho do texto">
+        <div class="botoes-controle">
+            <button class="botao-acessivel" onclick="alterarFonte(-2)" aria-label="Diminuir tamanho do texto">
                 <span>A-</span>
             </button>
-            <button class="btn-accessible" onclick="alterarFonte(2)" aria-label="Aumentar tamanho do texto">
+            <button class="botao-acessivel" onclick="alterarFonte(2)" aria-label="Aumentar tamanho do texto">
                 <strong>A+</strong>
             </button>
-            <button class="btn-accessible" id="btn-contraste" onclick="alternarContraste()" aria-label="Alternar para alto contraste">
+            <button class="botao-acessivel" id="btn-contraste" onclick="alternarContraste()" aria-label="Alternar para alto contraste">
                 <span>🌗 Alto Contraste</span>
             </button>
         </div>
     </header>
 
     <!-- CONTAINER PRINCIPAL -->
-    <main class="container">
+    <main class="conteiner">
         
         <!-- CABEÇALHO DE BOAS-VINDAS -->
-        <section class="welcome-header" role="region" aria-labelledby="welcome-title">
-            <h1 id="welcome-title">Olá! Vamos navegar com segurança?</h1>
+        <section class="cabecalho-boas-vindas" role="region" aria-labelledby="titulo-boas-vindas">
+            <h1 id="titulo-boas-vindas">Olá! Vamos navegar com segurança?</h1>
             <p>Este aplicativo foi feito especialmente para ajudar você a usar seu celular ou computador sem medo de golpes.</p>
         </section>
 
         <!-- SELEÇÃO DE ABAS (FÁCIL NAVEGAÇÃO) -->
-        <nav class="tabs" aria-label="Menu principal">
-            <button class="tab-btn active" onclick="mudarAba('dicas', this)" id="tab-dicas">
-                <span class="tab-icon" aria-hidden="true">💡</span>
+        <nav class="abas" aria-label="Menu principal">
+            <button class="botao-aba ativo" onclick="mudarAba('dicas', this)" id="tab-dicas">
+                <span class="icone-aba" aria-hidden="true">💡</span>
                 <span>Dicas de Segurança</span>
             </button>
-            <button class="tab-btn" onclick="mudarAba('simulador', this)" id="tab-simulador">
-                <span class="tab-icon" aria-hidden="true">🎮</span>
+            <button class="botao-aba" onclick="mudarAba('simulador', this)" id="tab-simulador">
+                <span class="icone-aba" aria-hidden="true">🎮</span>
                 <span>Treino de Golpes</span>
             </button>
-            <button class="tab-btn" onclick="mudarAba('glossario', this)" id="tab-glossario">
-                <span class="tab-icon" aria-hidden="true">📖</span>
+            <button class="botao-aba" onclick="mudarAba('glossario', this)" id="tab-glossario">
+                <span class="icone-aba" aria-hidden="true">📖</span>
                 <span>Palavras Difíceis</span>
             </button>
         </nav>
 
         <!-- SEÇÃO 1: DICAS DE SEGURANÇA -->
-        <section id="dicas" class="section-content active" role="tabpanel" aria-labelledby="tab-dicas">
-            <h2 class="sr-only">Dicas de Segurança</h2>
-            <div class="dicas-grid">
+        <section id="dicas" class="conteudo-secao ativo" role="tabpanel" aria-labelledby="tab-dicas">
+            <h2 class="apenas-leitor-tela">Dicas de Segurança</h2>
+            <div class="grade-dicas">
                 
-                <div class="dica-card">
-                    <div class="dica-header">
-                        <span class="dica-icon" aria-hidden="true">🔑</span>
+                <div class="cartao-dica">
+                    <div class="cabecalho-dica">
+                        <span class="icone-dica" aria-hidden="true">🔑</span>
                         <h3>Como criar boas senhas</h3>
                     </div>
-                    <div class="dica-body">
+                    <div class="corpo-dica">
                         <p>As senhas protegem o seu dinheiro e as suas conversas. Siga estes passos simples:</p>
                         <ul>
                             <li><strong>Evite o óbvio:</strong> Não use sua data de nascimento, nome de netos ou sequências como "123456".</li>
@@ -587,12 +79,12 @@
                     </div>
                 </div>
 
-                <div class="dica-card alerta">
-                    <div class="dica-header">
-                        <span class="dica-icon" aria-hidden="true">⚠️</span>
+                <div class="cartao-dica alerta">
+                    <div class="cabecalho-dica">
+                        <span class="icone-dica" aria-hidden="true">⚠️</span>
                         <h3>Cuidado com o Golpe do WhatsApp</h3>
                     </div>
-                    <div class="dica-body">
+                    <div class="corpo-dica">
                         <p>Os golpistas fingem ser pessoas conhecidas para pedir dinheiro urgente.</p>
                         <ul>
                             <li><strong>Alguém pediu dinheiro?</strong> Mesmo que seja a foto do seu filho ou neto, não envie dinheiro na hora.</li>
@@ -602,12 +94,12 @@
                     </div>
                 </div>
 
-                <div class="dica-card sucesso">
-                    <div class="dica-header">
-                        <span class="dica-icon" aria-hidden="true">🛒</span>
+                <div class="cartao-dica sucesso">
+                    <div class="cabecalho-dica">
+                        <span class="icone-dica" aria-hidden="true">🛒</span>
                         <h3>Como fazer Compras Seguras</h3>
                     </div>
-                    <div class="dica-body">
+                    <div class="corpo-dica">
                         <p>Comprar pela internet é prático, mas exige alguns cuidados essenciais:</p>
                         <ul>
                             <li><strong>Preços milagrosos não existem:</strong> Se um produto que custa 2.000 reais estiver anunciado por 300 reais, desconfie na hora!</li>
@@ -617,12 +109,12 @@
                     </div>
                 </div>
 
-                <div class="dica-card">
-                    <div class="dica-header">
-                        <span class="dica-icon" aria-hidden="true">📞</span>
+                <div class="cartao-dica">
+                    <div class="cabecalho-dica">
+                        <span class="icone-dica" aria-hidden="true">📞</span>
                         <h3>Ligações Falsas do Banco</h3>
                     </div>
-                    <div class="dica-body">
+                    <div class="corpo-dica">
                         <p>O telefone toca e alguém diz que há um problema urgente com a sua conta bancária:</p>
                         <ul>
                             <li><strong>O banco não liga pedindo senha:</strong> Nenhum funcionário legítimo do banco pedirá sua senha ou código por telefone.</li>
@@ -634,101 +126,96 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 2: SIMULADOR DE GOLPES (TREINAMENTO) -->
-        <section id="simulador" class="section-content" role="tabpanel" aria-labelledby="tab-simulador">
-            <div class="simulador-container">
+        <!-- SEÇÃO 2: SIMULADOR DE GOLPES -->
+        <section id="simulador" class="conteudo-secao" role="tabpanel" aria-labelledby="tab-simulador">
+            <div class="recipiente-simulador">
                 <h2>Treino Prático de Atenção</h2>
                 <p style="margin-bottom: 20px;">Veja a mensagem abaixo. Ela chegou no seu celular. Você deve clicar no botão verde se achar que é <strong>Seguro</strong> ou no botão vermelho se achar que é um <strong>Golpe</strong>.</p>
                 
-                <div class="simulador-progresso">
+                <div class="progresso-simulador">
                     <span>Situação atual: <span id="num-pergunta">1</span> de 3</span>
                     <span>Pontos: <span id="pontos">0</span></span>
                 </div>
 
-                <!-- Painel do Quiz -->
                 <div class="mensagem-simulada" id="caixa-mensagem">
-                    <div class="remetente-info" id="remetente">Remetente: banco_super_seguro102@gmail.com</div>
+                    <div class="info-remetente" id="remetente">Remetente: banco_super_seguro102@gmail.com</div>
                     <div class="corpo-mensagem" id="conteudo-mensagem">
-                        "Prezado cliente, sua conta bancária será bloqueada em 2 horas por falta de atualização. Clique no link urgente para resolver: <span class="links-destaque">www.bancobloqueio-urgente.com/atualizar-agora</span>"
+                        "Prezado cliente, sua conta bancária será bloqueada em 2 horas por falta de atualização. Clique no link urgente para resolver: <span class="links-destaque">[www.bancobloqueio-urgente.com/atualizar-agora](https://www.bancobloqueio-urgente.com/atualizar-agora)</span>"
                     </div>
                 </div>
 
-                <!-- Botões de Opção -->
                 <div class="acoes-simulador">
-                    <button class="btn-opcao btn-golpe" onclick="verificarResposta(true)">
+                    <button class="botao-opcao botao-golpe" onclick="verificarResposta(true)">
                         <span aria-hidden="true">🚫</span> É UM GOLPE!
                     </button>
-                    <button class="btn-opcao btn-seguro" onclick="verificarResposta(false)">
+                    <button class="botao-opcao botao-seguro" onclick="verificarResposta(false)">
                         <span aria-hidden="true">✅</span> É SEGURO
                     </button>
                 </div>
 
-                <!-- Caixa de Feedback -->
-                <div class="feedback-box" id="feedback">
+                <div class="caixa-feedback" id="feedback">
                     <strong>A resposta certa era Golpe!</strong><br>
                     <span>Explicação: Bancos nunca usam e-mails gratuitos (como @gmail.com) e nunca ameaçam bloquear sua conta em poucas horas através de links assustadores.</span>
                 </div>
 
-                <!-- Botão de Avançar -->
-                <button class="btn-accessible btn-accent btn-avancar" id="btn-proximo" onclick="proximaPergunta()" style="width: 100%; justify-content: center; height: 50px;">
+                <button class="botao-acessivel botao-destaque botao-avancar" id="btn-proximo" onclick="proximaPergunta()" style="width: 100%; justify-content: center; height: 50px;">
                     Ir para o Próximo Treino ➡️
                 </button>
             </div>
         </section>
 
-        <!-- SEÇÃO 3: GLOSSÁRIO DE PALAVRAS DIFÍCEIS -->
-        <section id="glossario" class="section-content" role="tabpanel" aria-labelledby="tab-glossario">
-            <h2 class="sr-only">Palavras Difíceis da Internet</h2>
+        <!-- SEÇÃO 3: GLOSSÁRIO -->
+        <section id="glossario" class="conteudo-secao" role="tabpanel" aria-labelledby="tab-glossario">
+            <h2 class="apenas-leitor-tela">Palavras Difíceis da Internet</h2>
             <p style="margin-bottom: 20px; font-weight: bold;">A internet é cheia de termos em inglês e palavras difíceis. Aqui explicamos o que cada uma significa em bom português:</p>
             
-            <div class="glossario-termo">
-                <div class="termo-titulo">PIX</div>
-                <div class="termo-corpo">É uma forma super rápida de enviar e receber dinheiro pelo celular, que cai na conta em poucos segundos. Muito prático, mas só envie para quem você realmente conhece e confia!</div>
+            <div class="termo-glossario">
+                <div class="titulo-termo">PIX</div>
+                <div class="corpo-termo">É uma forma super rápida de enviar e receber dinheiro pelo celular, que cai na conta em poucos segundos. Muito prático, mas só envie para quem você realmente conhece e confia!</div>
             </div>
 
-            <div class="glossario-termo">
-                <div class="termo-titulo">Phishing (ou "Pescagem")</div>
-                <div class="termo-corpo">É quando um criminoso tenta "pescar" suas informações (como senhas ou números de cartão) enviando mensagens falsas que parecem de empresas de verdade.</div>
+            <div class="termo-glossario">
+                <div class="titulo-termo">Phishing (ou "Pescagem")</div>
+                <div class="corpo-termo">É quando um criminoso tenta "pescar" suas informações (como senhas ou números de cartão) enviando mensagens falsas que parecem de empresas de verdade.</div>
             </div>
 
-            <div class="glossario-termo">
-                <div class="termo-titulo">Vírus</div>
-                <div class="termo-corpo">Um programa de computador malicioso que entra no seu celular ou computador escondido, geralmente quando você clica em links falsos ou baixa arquivos desconhecidos.</div>
+            <div class="termo-glossario">
+                <div class="titulo-termo">Vírus</div>
+                <div class="corpo-termo">Um programa de computador malicioso que entra no seu celular ou computador escondido, geralmente quando você clica em links falsos ou baixa arquivos desconhecidos.</div>
             </div>
 
-            <div class="glossario-termo">
-                <div class="termo-titulo">Link</div>
-                <div class="termo-corpo">É aquele texto (geralmente azul e sublinhado) ou botão que, quando você clica ou toca com o dedo, te leva para outra página da internet. Exemplo: <span style="color: blue; text-decoration: underline;">www.exemplo.com</span></div>
+            <div class="termo-glossario">
+                <div class="titulo-termo">Link</div>
+                <div class="corpo-termo">É aquele texto (geralmente azul e sublinhado) ou botão que, quando você clica ou toca com o dedo, te leva para outra página da internet. Exemplo: <span style="color: blue; text-decoration: underline;">[www.exemplo.com](https://www.exemplo.com)</span></div>
             </div>
 
-            <div class="glossario-termo">
-                <div class="termo-titulo">Senha de Uso Único (SMS/Token)</div>
-                <div class="termo-corpo">Um código de números que chega por mensagem no seu celular para confirmar que é você mesmo que está fazendo aquela operação. Nunca passe esse código para outra pessoa!</div>
+            <div class="termo-glossario">
+                <div class="titulo-termo">Senha de Uso Único (SMS/Token)</div>
+                <div class="corpo-termo">Um código de números que chega por mensagem no seu celular para confirmar que é você mesmo que está fazendo aquela operação. Nunca passe esse código para outra pessoa!</div>
             </div>
         </section>
 
     </main>
 
     <!-- BOTÃO FIXO DE AJUDA RÁPIDA -->
-    <button class="help-button-fixed" onclick="abrirAjuda()" aria-label="Abrir opções de ajuda de emergência">
+    <button class="botao-ajuda-fixo" onclick="abrirAjuda()" aria-label="Abrir opções de ajuda de emergência">
         <span style="font-size: 1.5rem;" aria-hidden="true">🆘</span> AJUDA RÁPIDA
     </button>
 
     <!-- MODAL DE AJUDA -->
-    <div class="modal" id="modal-ajuda" role="dialog" aria-labelledby="modal-title" aria-modal="true">
-        <div class="modal-content">
-            <div class="modal-title" id="modal-title">Precisa de Ajuda Urgente?</div>
+    <div class="modal" id="modal-ajuda" role="dialog" aria-labelledby="titulo-modal" aria-modal="true">
+        <div class="conteudo-modal">
+            <div class="titulo-modal" id="titulo-modal">Precisa de Ajuda Urgente?</div>
             <p>Se você acha que caiu em um golpe ou está confuso com alguma mensagem, não entre em pânico. Fale com alguém em quem confia!</p>
             
-            <div class="modal-button-list">
-                <!-- Simulação de ligação para familiar / suporte -->
-                <a href="tel:190" class="btn-call" style="background-color: var(--color-danger);" onclick="registrarAcao('Polícia')">
+            <div class="lista-botoes-modal">
+                <a href="tel:190" class="botao-ligar" style="background-color: var(--cor-perigo);" onclick="registrarAcao('Polícia')">
                     📞 Ligar para Emergência (190)
                 </a>
-                <button class="btn-call" onclick="simularLigacaoFamiliar()">
+                <button class="botao-ligar" onclick="simularLigacaoFamiliar()">
                     📞 Chamar Familiar Cadastrado
                 </button>
-                <button class="btn-close-modal" onclick="fecharAjuda()">
+                <button class="botao-fechar-modal" onclick="fecharAjuda()">
                     Voltar para o Aplicativo
                 </button>
             </div>
@@ -737,22 +224,18 @@
 
     <!-- SCRIPT COM A LÓGICA DE INTERAÇÃO -->
     <script>
-        // --- GERENCIAMENTO DE ACESSIBILIDADE ---
-        let tamanhoFonteAtual = 18; // Fonte padrão definida no CSS
+        let tamanhoFonteAtual = 18;
 
         function alterarFonte(mudanca) {
             tamanhoFonteAtual += mudanca;
-            // Limitar a fonte para não quebrar completamente o design, mas mantendo boa acessibilidade
             if (tamanhoFonteAtual < 14) tamanhoFonteAtual = 14;
             if (tamanhoFonteAtual > 28) tamanhoFonteAtual = 28;
-            
             document.body.style.fontSize = tamanhoFonteAtual + "px";
         }
 
         function alternarContraste() {
             const body = document.body;
             body.classList.toggle('alto-contraste');
-            
             const btn = document.getElementById('btn-contraste');
             if (body.classList.contains('alto-contraste')) {
                 btn.innerHTML = "☀️ Modo Normal";
@@ -763,25 +246,19 @@
             }
         }
 
-        // --- SISTEMA DE ABAS ---
         function mudarAba(abaId, elementoBotao) {
-            // Esconder todas as seções
-            const secoes = document.querySelectorAll('.section-content');
-            secoes.forEach(sec => sec.classList.remove('active'));
+            const secoes = document.querySelectorAll('.conteudo-secao');
+            secoes.forEach(sec => sec.classList.remove('ativo'));
 
-            // Desativar estilo de todos os botões de aba
-            const botoesAbas = document.querySelectorAll('.tab-btn');
-            botoesAbas.forEach(btn => btn.classList.remove('active'));
+            const botoesAbas = document.querySelectorAll('.botao-aba');
+            botoesAbas.forEach(btn => btn.classList.remove('ativo'));
 
-            // Ativar a seção e o botão corretos
-            document.getElementById(abaId).classList.add('active');
-            elementoBotao.classList.add('active');
+            document.getElementById(abaId).classList.add('ativo');
+            elementoBotao.classList.add('ativo');
 
-            // Scroll suave até o topo para facilitar navegação
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // --- DADOS DO SIMULADOR (QUIZ) ---
         const perguntasQuiz = [
             {
                 remetente: "banco_super_seguro102@gmail.com",
@@ -811,12 +288,8 @@
             document.getElementById('num-pergunta').innerText = perguntaAtual + 1;
             document.getElementById('remetente').innerText = "Remetente: " + dados.remetente;
             document.getElementById('conteudo-mensagem').innerHTML = dados.mensagem;
-            
-            // Ocultar feedback e botão avançar
             document.getElementById('feedback').style.display = 'none';
             document.getElementById('btn-proximo').style.display = 'none';
-            
-            // Reativar os botões de opção do simulador
             const botoesOpcoes = document.querySelectorAll('.acoes-simulador button');
             botoesOpcoes.forEach(btn => btn.removeAttribute('disabled'));
         }
@@ -824,8 +297,6 @@
         function verificarResposta(usuarioEscolheuGolpe) {
             const dados = perguntasQuiz[perguntaAtual];
             const feedbackBox = document.getElementById('feedback');
-            
-            // Desativar botões temporariamente
             const botoesOpcoes = document.querySelectorAll('.acoes-simulador button');
             botoesOpcoes.forEach(btn => btn.setAttribute('disabled', 'true'));
 
@@ -834,17 +305,15 @@
             if (acertou) {
                 pontuacao += 10;
                 document.getElementById('pontos').innerText = pontuacao;
-                feedbackBox.className = "feedback-box feedback-correto";
+                feedbackBox.className = "caixa-feedback feedback-correto";
                 feedbackBox.innerHTML = "<strong>⭐ Muito bem! Você acertou!</strong><br><br>" + dados.explicacao;
             } else {
-                feedbackBox.className = "feedback-box feedback-errado";
+                feedbackBox.className = "caixa-feedback feedback-errado";
                 feedbackBox.innerHTML = "<strong>⚠️ Atenção para o perigo!</strong><br><br>" + dados.explicacao;
             }
 
             feedbackBox.style.display = 'block';
             document.getElementById('btn-proximo').style.display = 'block';
-            
-            // Rolar suavemente até o feedback para garantir que o idoso o veja
             feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
@@ -853,15 +322,14 @@
             if (perguntaAtual < perguntasQuiz.length) {
                 carregarPergunta();
             } else {
-                // Fim do Treinamento
-                const painel = document.querySelector('.simulador-container');
+                const painel = document.querySelector('.recipiente-simulador');
                 painel.innerHTML = `
                     <div style="text-align: center; padding: 20px;">
                         <span style="font-size: 4rem;">🏆</span>
                         <h2 style="margin: 15px 0;">Treinamento Concluído!</h2>
                         <p style="font-size: 1.2rem; margin-bottom: 20px;">Você fez um excelente trabalho e aprendeu a reconhecer perigos na internet.</p>
-                        <p style="font-size: 1.3rem; font-weight: bold; color: var(--color-success)">Pontuação Final: ${pontuacao} pontos</p>
-                        <button class="btn-accessible btn-accent" onclick="reiniciarSimulador()" style="margin-top: 25px; width: 100%; justify-content: center;">
+                        <p style="font-size: 1.3rem; font-weight: bold; color: var(--cor-sucesso)">Pontuação Final: ${pontuacao} pontos</p>
+                        <button class="botao-acessivel botao-destaque" onclick="reiniciarSimulador()" style="margin-top: 25px; width: 100%; justify-content: center;">
                             🔄 Jogar Novamente
                         </button>
                     </div>
@@ -872,66 +340,42 @@
         function reiniciarSimulador() {
             perguntaAtual = 0;
             pontuacao = 0;
-            
-            // Restaurar a estrutura HTML inicial do simulador
-            const painel = document.querySelector('.simulador-container');
+            const painel = document.querySelector('.recipiente-simulador');
             painel.innerHTML = `
                 <h2>Treino Prático de Atenção</h2>
                 <p style="margin-bottom: 20px;">Veja a mensagem abaixo. Ela chegou no seu celular. Você deve clicar no botão verde se achar que é <strong>Seguro</strong> ou no botão vermelho se achar que é um <strong>Golpe</strong>.</p>
-                
-                <div class="simulador-progresso">
+                <div class="progresso-simulador">
                     <span>Situação atual: <span id="num-pergunta">1</span> de 3</span>
                     <span>Pontos: <span id="pontos">0</span></span>
                 </div>
-
                 <div class="mensagem-simulada" id="caixa-mensagem">
-                    <div class="remetente-info" id="remetente">Remetente: banco_super_seguro102@gmail.com</div>
+                    <div class="info-remetente" id="remetente">Remetente: banco_super_seguro102@gmail.com</div>
                     <div class="corpo-mensagem" id="conteudo-mensagem"></div>
                 </div>
-
                 <div class="acoes-simulador">
-                    <button class="btn-opcao btn-golpe" onclick="verificarResposta(true)">
+                    <button class="botao-opcao botao-golpe" onclick="verificarResposta(true)">
                         <span aria-hidden="true">🚫</span> É UM GOLPE!
                     </button>
-                    <button class="btn-opcao btn-seguro" onclick="verificarResposta(false)">
+                    <button class="botao-opcao botao-seguro" onclick="verificarResposta(false)">
                         <span aria-hidden="true">✅</span> É SEGURO
                     </button>
                 </div>
-
-                <div class="feedback-box" id="feedback"></div>
-
-                <button class="btn-accessible btn-accent btn-avancar" id="btn-proximo" onclick="proximaPergunta()" style="width: 100%; justify-content: center; height: 50px;">
+                <div class="caixa-feedback" id="feedback"></div>
+                <button class="botao-acessivel botao-destaque botao-avancar" id="btn-proximo" onclick="proximaPergunta()" style="width: 100%; justify-content: center; height: 50px;">
                     Ir para o Próximo Treino ➡️
                 </button>
             `;
-            
             carregarPergunta();
         }
 
-        // --- SISTEMA DE MODAL DE AJUDA ---
-        function abrirAjuda() {
-            document.getElementById('modal-ajuda').style.display = 'flex';
-        }
+        function abrirAjuda() { document.getElementById('modal-ajuda').style.display = 'flex'; }
+        function fecharAjuda() { document.getElementById('modal-ajuda').style.display = 'none'; }
+        function simularLigacaoFamiliar() { alert("Chamando familiar cadastrado..."); }
+        function registrarAcao(tipo) { console.log(`Ajuda: ${tipo}`); }
 
-        function fecharAjuda() {
-            document.getElementById('modal-ajuda').style.display = 'none';
-        }
-
-        function simularLigacaoFamiliar() {
-            // Em uma situação real, faria uma chamada usando tel: ou WhatsApp API
-            alert("Chamando familiar cadastrado... (Isto é uma simulação de segurança. Em seu telefone real, este botão iniciará uma ligação rápida para um contato de confiança pré-configurado.)");
-        }
-
-        function registrarAcao(tipo) {
-            console.log(`Ajuda acionada para: ${tipo}`);
-        }
-
-        // Fechar modal clicando fora da caixa
         window.onclick = function(event) {
             const modal = document.getElementById('modal-ajuda');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
+            if (event.target == modal) { modal.style.display = 'none'; }
         }
     </script>
 </body>
