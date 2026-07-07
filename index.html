@@ -3,427 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Digital Seguro - Acessibilidade para Idosos</title>
-    <!-- Google Fonts para melhor legibilidade -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    
-    <!-- Ligação para o ficheiro de estilos externo -->
-    <link rel="stylesheet" href="estilo.css">
+    <title>Guia de Segurança Digital</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- BARRA DE ACESSIBILIDADE FIXA -->
-    <header class="barra-acessibilidade" role="banner">
-        <div class="area-logo">
-            <span class="icone-logo" aria-hidden="true">🛡️</span>
-            <span class="titulo-logo">Internet Segura</span>
-        </div>
-        
-        <div class="botoes-controle">
-            <button class="botao-acessivel" onclick="alterarFonte(-2)" aria-label="Diminuir tamanho do texto">
-                <span>A-</span>
-            </button>
-            <button class="botao-acessivel" onclick="alterarFonte(2)" aria-label="Aumentar tamanho do texto">
-                <strong>A+</strong>
-            </button>
-            <button class="botao-acessivel" id="btn-contraste" onclick="alternarContraste()" aria-label="Alternar para alto contraste">
-                <span>🌗 Alto Contraste</span>
-            </button>
-        </div>
+    <header class="cabecalho">
+        <h1>Guia de Segurança Digital</h1>
+        <p>Aprenda a navegar na internet com total segurança e tranquilidade.</p>
     </header>
 
-    <!-- CONTAINER PRINCIPAL -->
-    <main class="conteiner">
+    <main class="conteudo">
         
-        <!-- CABEÇALHO DE BOAS-VINDAS -->
-        <section class="cabecalho-boas-vindas" role="region" aria-labelledby="titulo-boas-vindas">
-            <h1 id="titulo-boas-vindas">Olá! Vamos navegar com segurança?</h1>
-            <p>Este aplicativo foi feito especialmente para ajudar você a usar seu celular ou computador sem medo de golpes.</p>
-        </section>
-
-        <!-- SELEÇÃO DE ABAS -->
-        <nav class="abas" aria-label="Menu principal">
-            <button class="botao-aba ativo" onclick="mudarAba('dicas', this)" id="tab-dicas">
-                <span class="icone-aba" aria-hidden="true">💡</span>
-                <span>Dicas de Segurança</span>
-            </button>
-            <button class="botao-aba" onclick="mudarAba('simulador', this)" id="tab-simulador">
-                <span class="icone-aba" aria-hidden="true">🎮</span>
-                <span>Treino de Golpes</span>
-            </button>
-            <button class="botao-aba" onclick="mudarAba('glossario', this)" id="tab-glossario">
-                <span class="icone-aba" aria-hidden="true">📖</span>
-                <span>Palavras Difíceis</span>
-            </button>
-        </nav>
-
-        <!-- SEÇÃO 1: DICAS DE SEGURANÇA -->
-        <section id="dicas" class="conteudo-secao ativo" role="tabpanel" aria-labelledby="tab-dicas">
-            <h2 class="apenas-leitor-tela">Dicas de Segurança</h2>
-            <div class="grade-dicas">
-                
-                <div class="cartao-dica">
-                    <div class="cabecalho-dica">
-                        <span class="icone-dica" aria-hidden="true">🔑</span>
-                        <h3>Como criar boas senhas</h3>
-                    </div>
-                    <div class="corpo-dica">
-                        <p>As senhas protegem o seu dinheiro e as suas conversas. Siga estes passos simples:</p>
-                        <ul>
-                            <li><strong>Evite o óbvio:</strong> Não use sua data de nascimento, nome de netos ou sequências como "123456".</li>
-                            <li><strong>Misture tudo:</strong> Use letras maiúsculas, minúsculas, números e símbolos (como @, ! ou #).</li>
-                            <li><strong>Escreva no papel se precisar:</strong> É melhor guardar um papelzinho anotado bem escondido em sua casa do que colocar uma senha fácil demais.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cartao-dica alerta">
-                    <div class="cabecalho-dica">
-                        <span class="icone-dica" aria-hidden="true">⚠️</span>
-                        <h3>Cuidado com o Golpe do WhatsApp</h3>
-                    </div>
-                    <div class="corpo-dica">
-                        <p>Os golpistas fingem ser pessoas conhecidas para pedir dinheiro urgente.</p>
-                        <ul>
-                            <li><strong>Alguém pediu dinheiro?</strong> Mesmo que seja a foto do seu filho ou neto, não envie dinheiro na hora.</li>
-                            <li><strong>Faça uma ligação de volta:</strong> Ligue para o número que você já tinha guardado do seu parente e pergunte se ele realmente pediu aquilo.</li>
-                            <li><strong>Não passe códigos:</strong> Se receber um código por mensagem SMS, nunca conte para ninguém. É o acesso ao seu aplicativo.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cartao-dica sucesso">
-                    <div class="cabecalho-dica">
-                        <span class="icone-dica" aria-hidden="true">🛒</span>
-                        <h3>Como fazer Compras Seguras</h3>
-                    </div>
-                    <div class="corpo-dica">
-                        <p>Comprar pela internet é prático, mas exige alguns cuidados essenciais:</p>
-                        <ul>
-                            <li><strong>Preços milagrosos não existem:</strong> Se um produto que custa 2.000 reais estiver anunciado por 300 reais, desconfie na hora!</li>
-                            <li><strong>Use Cartão Virtual:</strong> Peça ajuda ao seu banco para criar um cartão temporário que expira após o uso.</li>
-                            <li><strong>Selos de segurança:</strong> Prefira sempre lojas conhecidas e recomendadas por amigos.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cartao-dica">
-                    <div class="cabecalho-dica">
-                        <span class="icone-dica" aria-hidden="true">📞</span>
-                        <h3>Ligações Falsas do Banco</h3>
-                    </div>
-                    <div class="corpo-dica">
-                        <p>O telefone toca e alguém diz que há um problema urgente com a sua conta bancária:</p>
-                        <ul>
-                            <li><strong>O banco não liga pedindo senha:</strong> Nenhum funcionário legítimo do banco pedirá sua senha ou código por telefone.</li>
-                            <li><strong>"Desligue e ligue você":</strong> Se estiver com medo, desligue a chamada e ligue para o número oficial que está atrás do seu cartão físico.</li>
-                        </ul>
-                    </div>
-                </div>
-
+        <section class="cartao-dica">
+            <div class="icone">🔒</div>
+            <div class="texto-dica">
+                <h2>1. Crie Senhas Fortes</h2>
+                <p>Evite usar sua data de nascimento ou o nome de parentes. Misture letras maiúsculas, números e símbolos (como @ ou #). Não anote suas senhas no celular.</p>
             </div>
         </section>
 
-        <!-- SEÇÃO 2: SIMULADOR DE GOLPES (TREINAMENTO) -->
-        <section id="simulador" class="conteudo-secao" role="tabpanel" aria-labelledby="tab-simulador">
-            <div class="recipiente-simulador">
-                <h2>Treino Prático de Atenção</h2>
-                <p style="margin-bottom: 20px;">Veja a mensagem abaixo. Ela chegou no seu celular. Você deve clicar no botão verde se achar que é <strong>Seguro</strong> ou no botão vermelho se achar que é um <strong>Golpe</strong>.</p>
-                
-                <div class="progresso-simulador">
-                    <span>Situação atual: <span id="num-pergunta">1</span> de 3</span>
-                    <span>Pontos: <span id="pontos">0</span></span>
-                </div>
-
-                <!-- Painel do Quiz -->
-                <div class="mensagem-simulada" id="caixa-mensagem">
-                    <div class="info-remetente" id="remetente">Remetente: banco_super_seguro102@gmail.com</div>
-                    <div class="corpo-mensagem" id="conteudo-mensagem">
-                        "Prezado cliente, sua conta bancária será bloqueada em 2 horas por falta de atualização. Clique no link urgente para resolver: <span class="links-destaque">www.bancobloqueio-urgente.com/atualizar-agora</span>"
-                    </div>
-                </div>
-
-                <!-- Botões de Opção -->
-                <div class="acoes-simulador">
-                    <button class="botao-opcao botao-golpe" onclick="verificarResposta(true)">
-                        <span aria-hidden="true">🚫</span> É UM GOLPE!
-                    </button>
-                    <button class="botao-opcao botao-seguro" onclick="verificarResposta(false)">
-                        <span aria-hidden="true">✅</span> É SEGURO
-                    </button>
-                </div>
-
-                <!-- Caixa de Feedback -->
-                <div class="caixa-feedback" id="feedback">
-                    <strong>A resposta certa era Golpe!</strong><br>
-                    <span>Explicação: Bancos nunca usam e-mails gratuitos (como @gmail.com) e nunca ameaçam bloquear sua conta em poucas horas através de links assustadores.</span>
-                </div>
-
-                <!-- Botão de Avançar -->
-                <button class="botao-acessivel botao-destaque botao-avancar" id="btn-proximo" onclick="proximaPergunta()" style="width: 100%; justify-content: center; height: 50px;">
-                    Ir para o Próximo Treino ➡️
-                </button>
+        <section class="cartao-dica">
+            <div class="icone">✉️</div>
+            <div class="texto-dica">
+                <h2>2. Cuidado com Links Suspeitos</h2>
+                <p>Se receber uma mensagem no WhatsApp ou e-mail dizendo que você ganhou um prêmio ou que seu banco bloqueou sua conta, **não clique**. Bancos não pedem senhas por mensagem.</p>
             </div>
         </section>
 
-        <!-- SEÇÃO 3: GLOSSÁRIO DE PALAVRAS DIFÍCEIS -->
-        <section id="glossario" class="conteudo-secao" role="tabpanel" aria-labelledby="tab-glossario">
-            <h2 class="apenas-leitor-tela">Palavras Difíceis da Internet</h2>
-            <p style="margin-bottom: 20px; font-weight: bold;">A internet é cheia de termos em inglês e palavras difíceis. Aqui explicamos o que cada uma significa em bom português:</p>
-            
-            <div class="termo-glossario">
-                <div class="titulo-termo">PIX</div>
-                <div class="corpo-termo">É uma forma super rápida de enviar e receber dinheiro pelo celular, que cai na conta em poucos segundos. Muito prático, mas só envie para quem você realmente conhece e confia!</div>
+        <section class="cartao-dica">
+            <div class="icone">📱</div>
+            <div class="texto-dica">
+                <h2>3. Não Compartilhe Códigos</h2>
+                <p>Se alguém ligar ou mandar mensagem pedindo um código que chegou no seu celular por SMS, **não passe**. Esse código pode ser o acesso ao seu WhatsApp.</p>
             </div>
+        </section>
 
-            <div class="termo-glossario">
-                <div class="titulo-termo">Phishing (ou "Pescagem")</div>
-                <div class="corpo-termo">É quando um criminoso tenta "pescar" suas informações (como senhas ou números de cartão) enviando mensagens falsas que parecem de empresas de verdade.</div>
-            </div>
-
-            <div class="termo-glossario">
-                <div class="titulo-termo">Vírus</div>
-                <div class="corpo-termo">Um programa de computador malicioso que entra no seu celular ou computador escondido, geralmente quando você clica em links falsos ou baixa arquivos desconhecidos.</div>
-            </div>
-
-            <div class="termo-glossario">
-                <div class="titulo-termo">Link</div>
-                <div class="corpo-termo">É aquele texto (geralmente azul e sublinhado) ou botão que, quando você clica ou toca com o dedo, te leva para outra página da internet. Exemplo: <span style="color: blue; text-decoration: underline;">www.exemplo.com</span></div>
-            </div>
-
-            <div class="termo-glossario">
-                <div class="titulo-termo">Senha de Uso Único (SMS/Token)</div>
-                <div class="corpo-termo">Um código de números que chega por mensagem no seu celular para confirmar que é você mesmo que está fazendo aquela operação. Nunca passe esse código para outra pessoa!</div>
+        <section class="cartao-dica">
+            <div class="icone">🤝</div>
+            <div class="texto-dica">
+                <h2>4. Na Dúvida, Peça Ajuda</h2>
+                <p>Achou algo estranho na tela ou recebeu uma cobrança esquisita? Converse com um familiar de confiança ou alguém mais jovem antes de tomar qualquer atitude.</p>
             </div>
         </section>
 
     </main>
 
-    <!-- BOTÃO FIXO DE AJUDA RÁPIDA -->
-    <button class="botao-ajuda-fixo" onclick="abrirAjuda()" aria-label="Abrir opções de ajuda de emergência">
-        <span style="font-size: 1.5rem;" aria-hidden="true">🆘</span> AJUDA RÁPIDA
-    </button>
+    <footer class="rodape">
+        <p>Navegue com cuidado. Sua segurança é muito importante!</p>
+    </footer>
 
-    <!-- MODAL DE AJUDA -->
-    <div class="modal" id="modal-ajuda" role="dialog" aria-labelledby="titulo-modal" aria-modal="true">
-        <div class="conteudo-modal">
-            <div class="titulo-modal" id="titulo-modal">Precisa de Ajuda Urgente?</div>
-            <p>Se você acha que caiu em um golpe ou está confuso com alguma mensagem, não entre em pânico. Fale com alguém em quem confia!</p>
-            
-            <div class="lista-botoes-modal">
-                <!-- Simulação de ligação para familiar / suporte -->
-                <a href="tel:190" class="botao-ligar" style="background-color: var(--cor-perigo);" onclick="registrarAcao('Polícia')">
-                    📞 Ligar para Emergência (190)
-                </a>
-                <button class="botao-ligar" onclick="simularLigacaoFamiliar()">
-                    📞 Chamar Familiar Cadastrado
-                </button>
-                <button class="botao-fechar-modal" onclick="fecharAjuda()">
-                    Voltar para o Aplicativo
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- SCRIPT COM A LÓGICA DE INTERAÇÃO -->
-    <script>
-        // --- GERENCIAMENTO DE ACESSIBILIDADE ---
-        let tamanhoFonteAtual = 18; // Fonte padrão definida no CSS
-
-        function alterarFonte(mudanca) {
-            tamanhoFonteAtual += mudanca;
-            // Limitar a fonte para não quebrar completamente o design, mas mantendo boa acessibilidade
-            if (tamanhoFonteAtual < 14) tamanhoFonteAtual = 14;
-            if (tamanhoFonteAtual > 28) tamanhoFonteAtual = 28;
-            
-            document.body.style.fontSize = tamanhoFonteAtual + "px";
-        }
-
-        function alternarContraste() {
-            const body = document.body;
-            body.classList.toggle('alto-contraste');
-            
-            const btn = document.getElementById('btn-contraste');
-            if (body.classList.contains('alto-contraste')) {
-                btn.innerHTML = "☀️ Modo Normal";
-                btn.setAttribute('aria-label', 'Alternar para modo de cores normal');
-            } else {
-                btn.innerHTML = "🌗 Alto Contraste";
-                btn.setAttribute('aria-label', 'Alternar para alto contraste');
-            }
-        }
-
-        // --- SISTEMA DE ABAS ---
-        function mudarAba(abaId, elementoBotao) {
-            // Esconder todas as seções
-            const secoes = document.querySelectorAll('.conteudo-secao');
-            secoes.forEach(sec => sec.classList.remove('ativo'));
-
-            // Desativar estilo de todos os botões de aba
-            const botoesAbas = document.querySelectorAll('.botao-aba');
-            botoesAbas.forEach(btn => btn.classList.remove('ativo'));
-
-            // Ativar a seção e o botão corretos
-            document.getElementById(abaId).classList.add('ativo');
-            elementoBotao.classList.add('ativo');
-
-            // Scroll suave até o topo para facilitar navegação
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // --- DADOS DO SIMULADOR (QUIZ) ---
-        const perguntasQuiz = [
-            {
-                remetente: "banco_super_seguro102@gmail.com",
-                mensagem: `"Prezado cliente, sua conta bancária será bloqueada em 2 horas por falta de atualização. Clique no link urgente para resolver: <span class='links-destaque'>www.bancobloqueio-urgente.com/atualizar-agora</span>"`,
-                eGolpe: true,
-                explicacao: "<strong>Isto é um Golpe!</strong> Bancos sérios nunca enviam mensagens urgentes de e-mails gratuitos (como @gmail.com) e nunca pedem para você clicar em links assustadores para evitar bloqueios."
-            },
-            {
-                remetente: "Maria (Sua Filha)",
-                mensagem: `"Mãe, mudei de número de telefone! Salva esse novo aí. Estou precisando pagar uma conta agora mas meu aplicativo deu erro. Consegue transferir R$ 850 para mim via PIX? Te pago amanhã sem falta!"`,
-                eGolpe: true,
-                explicacao: "<strong>Isto é um Golpe!</strong> Criminosos pegam fotos de seus parentes na internet para se passar por eles com um número novo. Antes de transferir qualquer dinheiro, ligue de volta para o número antigo do seu parente!"
-            },
-            {
-                remetente: "Informativo Oficial Prefeitura",
-                mensagem: `"Prezado cidadão, a campanha de vacinação contra a gripe começará na próxima segunda-feira no posto de saúde mais próximo de sua casa. Não esqueça de levar sua caderneta de vacinação e documento com foto."`,
-                eGolpe: false,
-                explicacao: "<strong>Isto é Seguro!</strong> A mensagem é meramente informativa, não pede para clicar em nenhum link estranho, não pede transferência de dinheiro e não solicita dados pessoais."
-            }
-        ];
-
-        let perguntaAtual = 0;
-        let pontuacao = 0;
-
-        function carregarPergunta() {
-            const dados = perguntasQuiz[perguntaAtual];
-            document.getElementById('num-pergunta').innerText = perguntaAtual + 1;
-            document.getElementById('remetente').innerText = "Remetente: " + dados.remetente;
-            document.getElementById('conteudo-mensagem').innerHTML = dados.mensagem;
-            
-            // Ocultar feedback e botão avançar
-            document.getElementById('feedback').style.display = 'none';
-            document.getElementById('btn-proximo').style.display = 'none';
-            
-            // Reativar os botões de opção do simulador
-            const botoesOpcoes = document.querySelectorAll('.acoes-simulador button');
-            botoesOpcoes.forEach(btn => btn.removeAttribute('disabled'));
-        }
-
-        function verificarResposta(usuarioEscolheuGolpe) {
-            const dados = perguntasQuiz[perguntaAtual];
-            const feedbackBox = document.getElementById('feedback');
-            
-            // Desativar botões temporariamente
-            const botoesOpcoes = document.querySelectorAll('.acoes-simulador button');
-            botoesOpcoes.forEach(btn => btn.setAttribute('disabled', 'true'));
-
-            const acertou = (usuarioEscolheuGolpe === dados.eGolpe);
-
-            if (acertou) {
-                pontuacao += 10;
-                document.getElementById('pontos').innerText = pontuacao;
-                feedbackBox.className = "caixa-feedback feedback-correto";
-                feedbackBox.innerHTML = "<strong>⭐ Muito bem! Você acertou!</strong><br><br>" + dados.explicacao;
-            } else {
-                feedbackBox.className = "caixa-feedback feedback-errado";
-                feedbackBox.innerHTML = "<strong>⚠️ Atenção para o perigo!</strong><br><br>" + dados.explicacao;
-            }
-
-            feedbackBox.style.display = 'block';
-            document.getElementById('btn-proximo').style.display = 'block';
-            
-            // Rolar suavemente até o feedback para garantir que o idoso o veja
-            feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-
-        function proximaPergunta() {
-            perguntaAtual++;
-            if (perguntaAtual < perguntasQuiz.length) {
-                carregarPergunta();
-            } else {
-                // Fim do Treinamento
-                const painel = document.querySelector('.recipiente-simulador');
-                painel.innerHTML = `
-                    <div style="text-align: center; padding: 20px;">
-                        <span style="font-size: 4rem;">🏆</span>
-                        <h2 style="margin: 15px 0;">Treinamento Concluído!</h2>
-                        <p style="font-size: 1.2rem; margin-bottom: 20px;">Você fez um excelente trabalho e aprendeu a reconhecer perigos na internet.</p>
-                        <p style="font-size: 1.3rem; font-weight: bold; color: var(--cor-sucesso)">Pontuação Final: ${pontuacao} pontos</p>
-                        <button class="botao-acessivel botao-destaque" onclick="reiniciarSimulador()" style="margin-top: 25px; width: 100%; justify-content: center;">
-                            🔄 Jogar Novamente
-                        </button>
-                    </div>
-                `;
-            }
-        }
-
-        function reiniciarSimulador() {
-            perguntaAtual = 0;
-            pontuacao = 0;
-            
-            // Restaurar a estrutura HTML inicial do simulador com as classes traduzidas
-            const painel = document.querySelector('.recipiente-simulador');
-            painel.innerHTML = `
-                <h2>Treino Prático de Atenção</h2>
-                <p style="margin-bottom: 20px;">Veja a mensagem abaixo. Ela chegou no seu celular. Você deve clicar no botão verde se achar que é <strong>Seguro</strong> ou no botão vermelho se achar que é um <strong>Golpe</strong>.</p>
-                
-                <div class="progresso-simulador">
-                    <span>Situação atual: <span id="num-pergunta">1</span> de 3</span>
-                    <span>Pontos: <span id="pontos">0</span></span>
-                </div>
-
-                <div class="mensagem-simulada" id="caixa-mensagem">
-                    <div class="info-remetente" id="remetente">Remetente: banco_super_seguro102@gmail.com</div>
-                    <div class="corpo-mensagem" id="conteudo-mensagem"></div>
-                </div>
-
-                <div class="acoes-simulador">
-                    <button class="botao-opcao botao-golpe" onclick="verificarResposta(true)">
-                        <span aria-hidden="true">🚫</span> É UM GOLPE!
-                    </button>
-                    <button class="botao-opcao botao-seguro" onclick="verificarResposta(false)">
-                        <span aria-hidden="true">✅</span> É SEGURO
-                    </button>
-                </div>
-
-                <div class="caixa-feedback" id="feedback"></div>
-
-                <button class="botao-acessivel botao-destaque botao-avancar" id="btn-proximo" onclick="proximaPergunta()" style="width: 100%; justify-content: center; height: 50px;">
-                    Ir para o Próximo Treino ➡️
-                </button>
-            `;
-            
-            carregarPergunta();
-        }
-
-        // --- SISTEMA DE MODAL DE AJUDA ---
-        function abrirAjuda() {
-            document.getElementById('modal-ajuda').style.display = 'flex';
-        }
-
-        function fecharAjuda() {
-            document.getElementById('modal-ajuda').style.display = 'none';
-        }
-
-        function simularLigacaoFamiliar() {
-            alert("Chamando familiar cadastrado... (Isto é uma simulação de segurança. Em seu telefone real, este botão iniciará uma ligação rápida para um contato de confiança pré-configurado.)");
-        }
-
-        function registrarAcao(tipo) {
-            console.log(`Ajuda acionada para: ${tipo}`);
-        }
-
-        // Fechar modal clicando fora da caixa
-        window.onclick = function(event) {
-            const modal = document.getElementById('modal-ajuda');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>
