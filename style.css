@@ -1,4 +1,4 @@
-/* Configurações Gerais para Acessibilidade */
+/* Reset Geral focado em Acessibilidade */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,94 +6,134 @@
 }
 
 body {
-    background-color: #f4f6f9;
-    /* Fonte sem serifa e grande para facilitar a leitura */
+    background-color: #f8f9fa;
+    /* Fonte limpa, sem serifa e com tamanho ampliado para leitura confortável */
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px; /* Tamanho de letra maior que o padrão */
+    font-size: 20px;
     line-height: 1.6;
-    color: #1a1a1a; /* Alto contraste com o fundo */
+    color: #111111; /* Máximo contraste para leitura */
 }
 
-/* Cabeçalho */
-.cabecalho {
-    background-color: #004085; /* Azul escuro seguro */
+/* SEÇÃO 1: Banner Inicial */
+.banner-inicial {
+    background-color: #002d62; /* Azul escuro de alta legibilidade */
     color: #ffffff;
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px 20px;
+    border-bottom: 8px solid #ffc107; /* Linha amarela de destaque visual */
 }
 
-.cabecalho h1 {
-    font-size: 2.2rem;
+.banner-conteudo h1 {
+    font-size: 2.5rem;
     margin-bottom: 15px;
 }
 
-.cabecalho p {
+.banner-conteudo p {
     font-size: 1.3rem;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
 }
 
-/* Container do Conteúdo */
-.conteudo {
-    max-width: 800px;
-    margin: 30px auto;
+/* Botão de Ajuda em Destaque Máximo */
+.botao-ajuda {
+    display: inline-block;
+    background-color: #dc3545; /* Vermelho vibrante de alerta */
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px 30px;
+    border-radius: 12px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.botao-ajuda:hover, .botao-ajuda:focus {
+    background-color: #bd2130;
+    outline: 3px solid #ffc107; /* Destaque ao focar com teclado */
+}
+
+/* Estrutura do Conteúdo */
+.container-principal {
+    max-width: 900px;
+    margin: 40px auto;
     padding: 0 20px;
 }
 
-/* Cartões de Dicas */
-.cartao-dica {
-    background-color: #ffffff;
-    border-left: 10px solid #28a745; /* Barra lateral verde para indicar segurança */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 25px;
-    padding: 25px;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+.secao-guia {
+    margin-bottom: 50px;
 }
 
-/* Ícones Grandes */
-.icone {
-    font-size: 3rem;
-    background-color: #e9ecef;
-    padding: 15px;
-    border-radius: 50%;
-    min-width: 80px;
-    text-align: center;
+.titulo-secao {
+    font-size: 1.8rem;
+    color: #002d62;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #002d62;
+    padding-bottom: 8px;
 }
 
-/* Texto das Dicas */
-.texto-dica h2 {
-    font-size: 1.6rem;
-    color: #004085;
-    margin-bottom: 10px;
-}
-
-.texto-dica p {
-    font-size: 1.15rem;
+.introducao-secao {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
     color: #333333;
 }
 
-/* Rodapé */
-.rodape {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: #343a40;
-    color: #ffffff;
-    margin-top: 50px;
-    font-size: 1.1rem;
+/* Cartões de Conteúdo (Gerais e por Categoria) */
+.cartao {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    /* Borda lateral padrão para Segurança (Verde) */
+    border-left: 12px solid #198754; 
 }
 
-/* Responsividade (Ajustes para Celular) */
+/* Variação para seções de Direitos (Azul) */
+.cartao.direito {
+    border-left-color: #0d6efd;
+}
+
+/* Variação para seções de Alerta de Golpes (Laranja/Amarelo de Atenção) */
+.cartao.golpe {
+    border-left-color: #fd7e14;
+}
+
+.cartao h3 {
+    font-size: 1.4rem;
+    color: #111111;
+    margin-bottom: 12px;
+}
+
+.cartao p {
+    font-size: 1.15rem;
+    color: #2b2b2b;
+}
+
+/* Rodapé */
+.rodape-seguro {
+    background-color: #212529;
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 20px;
+    margin-top: 60px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Responsividade Básica (Celulares) */
 @media (max-width: 600px) {
-    .cartao-dica {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    body {
+        font-size: 18px; /* Redução sutil apenas para telas muito pequenas */
     }
     
-    .cabecalho h1 {
-        font-size: 1.8rem;
+    .banner-conteudo h1 {
+        font-size: 2rem;
+    }
+    
+    .botao-ajuda {
+        font-size: 1.1rem;
+        padding: 15px 20px;
+        width: 100%; /* Ocupa a largura total para clique mais fácil no celular */
     }
 }
